@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "ordinal": 0,
+      "name" : "EmployeeName",
+      "fieldType": "string",
+      "transformers" : [
+        {
+          "name" : "NullTransformer",
+          "params" : [ {"key" : "replace", "value" : "0"} ]
+        }
+      ]
+    },
+    {
+      "ordinal": 1,
+      "name" : "DateOfBirth",
+      "fieldType": "string",
+      "transformers": [
+        {
+          "name": "NullTransformer",
+          "params": [
+            {
+              "key": "replace",
+              "value": "01-01-1970"
+            }
+          ]
+        },
+        {
+          "name": "DateTransformer",
+          "params": [
+            {
+              "key": "sourceDateFormat",
+              "value": "dd-MM-yyyy"
+            },
+            {
+              "key": "targetDateFormat",
+              "value": "yyyy-MM-dd"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
